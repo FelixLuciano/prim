@@ -1,0 +1,20 @@
+{
+  "name": "prim",
+  "description": "Prim is a css library for templating of responsive layouts",
+  "main": "index.js",
+  "authors": [
+    "Luciano Felix"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "css"
+  ],
+  "homepage": "https://github.com/FelixLuciano/prim",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

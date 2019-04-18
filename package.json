@@ -1,0 +1,22 @@
+{
+  "name": "prim",
+  "version": "1.0.0",
+  "author": "Luciano Felix",
+  "description": "Prim is a css library for templating of responsive layouts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelixLuciano/prim.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FelixLuciano/prim/issues"
+  },
+  "homepage": "https://github.com/FelixLuciano/prim#readme"
+}
