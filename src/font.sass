@@ -1,0 +1,138 @@
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      FONT      ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+//-----------------------
+//::::  Text length  ::::
+//-----------------------
+@for $size from 0 through 64
+  $value: ($size * 2) + 10
+
+  .l-#{$value}
+    font-size: #{$value}px !important
+    line-height: #{$value}px !important
+
+//----------------------------------
+//::::  Responsive text length  ::::
+//----------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+
+  @media only screen and (min-width: nth($breakpoint, 2))
+    @for $size from 0 through 64
+      $value: ($size * 2) + 10
+
+      .l-#{$bp}-#{$value}
+        font-size: #{$value}px !important
+
+//-----------------------
+//::::  Font weight  ::::
+//-----------------------
+.w
+  &-thin
+    font-weight: 100
+
+  &-light
+    font-weight: 300
+
+  &-regular
+    font-weight: 400
+
+  &-medium
+    font-weight: 500
+
+  &-semibold
+    font-weight: 600
+
+  &-bold
+    font-weight: 700
+
+  &-black
+    font-weight: 900
+
+//----------------------------------
+//::::  Responsive font weight  ::::
+//----------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+
+  @media only screen and (min-width: nth($breakpoint, 2))
+    .w-#{$bp}
+      &-thin
+        font-weight: 100
+
+      &-light
+        font-weight: 300
+
+      &-regular
+        font-weight: 400
+
+      &-medium
+        font-weight: 500
+
+      &-semibold
+        font-weight: 600
+
+      &-bold
+        font-weight: 700
+
+      &-black
+        font-weight: 900
+
+//----------------------
+//::::  Font style  ::::
+//----------------------
+.s-italic
+  font-style: italic
+
+//---------------------------
+//::::  Text decoration  ::::
+//---------------------------
+.d
+  &-underline
+    text-decoration: underline
+
+//----------------------
+//::::  Text align  ::::
+//----------------------
+.a
+  &-left
+    text-align: left
+
+  &-center
+    text-align: center
+
+  &-right
+    text-align: right
+
+  &-justify
+    text-align: justify
+
+//---------------------------------
+//::::  Responsive text align  ::::
+//---------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+
+  @media only screen and (min-width: nth($breakpoint, 2))
+    .a-#{$bp}
+      &-left
+        text-align: left
+
+      &-center
+        text-align: center
+
+      &-right
+        text-align: right
+
+//--------------------
+//::::  Truncate  ::::
+//--------------------
+.truncate
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------

@@ -1,0 +1,70 @@
+//----------------------------------------------------------------
+//::::::::::::::::::::::::   Background   ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+.bg
+  //------------------
+  //::::  Colors  ::::
+  //------------------
+  @each $item in $colors
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      background-color: var(--color-#{$name}) !important
+      color: $color-shade-dark
+
+      @for $index from 1 through 4
+        &-l#{$index}
+          background-color: var(--color-#{$name}-l#{$index}) !important
+          color: $color-shade-dark
+
+        &-d#{$index}
+          background-color: var(--color-#{$name}-d#{$index}) !important
+          color: $color-shade-white
+
+
+  //--------------------
+  //::::  Neutrals  ::::
+  //--------------------
+  @each $item in $color-neutrals
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      background-color: var(--color-#{$name}) !important
+
+      @for $index from 1 through 6
+        &-l#{$index}
+          background-color: var(--color-#{$name}-l#{$index}) !important
+          color: $color-shade-dark
+
+      @for $index from 1 through 12
+        &-d#{$index}
+          background-color: var(--color-#{$name}-d#{$index}) !important
+          color: $color-shade-white
+
+
+  //------------------
+  //::::  shades  ::::
+  //------------------
+  @each $item in $color-shades
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      background-color: var(--color-#{$name}) !important
+
+
+  //---------------------
+  //::::  Variables  ::::
+  //---------------------
+  @each $item in $color-customs
+    $name: nth($item, 1)
+
+    &-#{$name}
+      background-color: var(--color-#{$name}) !important
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------

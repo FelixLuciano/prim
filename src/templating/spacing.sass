@@ -1,0 +1,75 @@
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      GRID      ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+//-----------------------
+//::::  Row spacing  ::::
+//-----------------------
+.container.spacing
+
+  @each $spacer in $spacers
+    $index: nth($spacer, 1)
+    $value: nth($spacer, 2)
+
+    &-#{$index} > .row + .row
+      margin-top: $value * 2
+
+
+
+//--------------------------
+//::::  Column spacing  ::::
+//--------------------------
+.row.spacing
+
+  @each $spacer in $spacers
+    $index: nth($spacer, 1)
+    $value: nth($spacer, 2)
+
+    &-#{$index}
+      width: calc(100% + #{$value}) !important
+      max-width: calc(1000px + #{$value}) !important
+      margin-top: -$value
+      margin-left: -$value !important
+      right: -$value
+      position: relative
+
+      &.full-line
+        max-width: calc(100% + #{$value}) !important
+
+      & > .col, & > [class^="col-"]
+        background-clip: padding-box !important
+        border: 0 solid transparent
+        border-top-width: $value
+        border-right-width: $value
+
+  //-------------------------------------
+  //::::  Responsive column spacing  ::::
+  //-------------------------------------
+  @each $breakpoint in $breakpoints
+    $bp: nth($breakpoint, 1)
+
+    @media only screen and (min-width: nth($breakpoint, 2))
+      @each $spacer in $spacers
+        $index: nth($spacer, 1)
+        $value: nth($spacer, 2)
+
+        &-#{"" + $bp}-#{$index}
+          width: calc(100% + #{$value}) !important
+          max-width: calc(1000px + #{$value}) !important
+          margin-top: -$value
+          margin-left: -$value !important
+          right: -$value
+          position: relative
+
+          &.full-line
+            max-width: calc(100% + #{$value}) !important
+
+          & > .col, & > [class^="col-"]
+            background-clip: padding-box !important
+            border: 0 solid transparent
+            border-top-width: $value
+            border-right-width: $value
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------

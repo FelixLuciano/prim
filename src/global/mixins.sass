@@ -1,0 +1,85 @@
+//---------------------------------------------------------------
+//::::::::::::::::::::::::     MIXINS     ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+//-----------------------------------
+//::::  Breakpoint xs and below  ::::
+//-----------------------------------
+@mixin break-xs
+  @media only screen and (max-width: $breakpoint-sm - 1)
+    @content
+
+//------------------------------
+//::::  Breakpoint sm only  ::::
+//------------------------------
+@mixin break-sm
+  @media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint sm and below  ::::
+//-----------------------------------
+@mixin break-sm-b
+  @media only screen and (max-width: $breakpoint-md - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint sm and above  ::::
+//-----------------------------------
+@mixin break-sm-a
+  @media only screen and (min-width: $breakpoint-sm)
+    @content
+
+//------------------------------
+//::::  Breakpoint md only  ::::
+//------------------------------
+@mixin break-md
+  @media only screen and (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint md and below  ::::
+//-----------------------------------
+@mixin break-md-b
+  @media only screen and (max-width: $breakpoint-lg - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint md and above  ::::
+//-----------------------------------
+@mixin break-md-a
+  @media only screen and (min-width: $breakpoint-md)
+    @content
+
+//------------------------------
+//::::  Breakpoint lg only  ::::
+//------------------------------
+@mixin break-lg
+  @media only screen and (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint sm and below  ::::
+//-----------------------------------
+@mixin break-lg-b
+  @media only screen and (max-width: $breakpoint-xl - 1)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint lg and above  ::::
+//-----------------------------------
+@mixin break-lg-a
+  @media only screen and (min-width: $breakpoint-lg)
+    @content
+
+//-----------------------------------
+//::::  Breakpoint xl and above  ::::
+//-----------------------------------
+@mixin break-xl
+  @media only screen and (min-width: $breakpoint-xl)
+    @content
+
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------

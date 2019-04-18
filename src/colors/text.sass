@@ -1,0 +1,66 @@
+//----------------------------------------------------------------
+//::::::::::::::::::::::::   Background   ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+.c
+
+  //------------------
+  //::::  Colors  ::::
+  //------------------
+  @each $item in $colors
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      color: var(--color-#{$name}) !important
+
+      @for $index from 1 through 4
+        &-l#{$index}
+          color: var(--color-#{$name}-l#{$index}) !important
+
+        &-d#{$index}
+          color: var(--color-#{$name}-d#{$index}) !important
+
+
+  //--------------------
+  //::::  Neutrals  ::::
+  //--------------------
+  @each $item in $color-neutrals
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      color: var(--color-#{$name}) !important
+
+      @for $index from 1 through 6
+        &-l#{$index}
+          color: var(--color-#{$name}-l#{$index}) !important
+
+      @for $index from 1 through 12
+        &-d#{$index}
+          color: var(--color-#{$name}-d#{$index}) !important
+
+
+  //------------------
+  //::::  shades  ::::
+  //------------------
+  @each $item in $color-shades
+    $name: nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{"" + $name}
+      color: var(--color-#{$name}) !important
+
+
+  //---------------------
+  //::::  Variables  ::::
+  //---------------------
+  @each $item in $color-customs
+    $name: nth($item, 1)
+
+    &-#{"" + $name}
+      color: var(--color-#{$name}) !important
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------
