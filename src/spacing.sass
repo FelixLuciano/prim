@@ -1,0 +1,95 @@
+//----------------------------------------------------------------
+//::::::::::::::::::::::::    SPACING     ::::::::::::::::::::::::
+//----------------------------------------------------------------
+
+//------------------------------
+//::::  Margin and padding  ::::
+//------------------------------
+@each $spacer in $spacers
+  $index: nth($spacer, 1)
+  $value: nth($spacer, 2)
+
+  @each $attr in (m: "margin", p: "padding")
+    $prefix: nth($attr, 1)
+    $sufix: #{$index}
+    $attribute: nth($attr, 2)
+
+    //--------------------------
+    //::::  All directions  ::::
+    //--------------------------
+    .#{$prefix}-#{$sufix}
+      #{$attribute}: $value !important
+
+    //----------------------------
+    //::::  Top and vertical  ::::
+    //----------------------------
+    .#{$prefix}t-#{$sufix}, .#{$prefix}v-#{$sufix}
+      #{$attribute}-top : $value !important
+
+    //-------------------------------
+    //::::  Bottom and vertical  ::::
+    //-------------------------------
+    .#{$prefix}b-#{$sufix}, .#{$prefix}v-#{$sufix}
+      #{$attribute}-bottom: $value !important
+
+    //-------------------------------
+    //::::  Left and horizontal  ::::
+    //-------------------------------
+    .#{$prefix}l-#{$sufix}, .#{$prefix}h-#{$sufix}
+      #{$attribute}-left: $value !important
+
+    //--------------------------------
+    //::::  Right and horizontal  ::::
+    //--------------------------------
+    .#{$prefix}r-#{$sufix}, .#{$prefix}h-#{$sufix}
+      #{$attribute}-right: $value !important
+
+//-----------------------------------------
+//::::  Responsive margin and padding  ::::
+//-----------------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+
+  @media only screen and (min-width: nth($breakpoint, 2))
+    @each $spacer in $spacers
+      $index: nth($spacer, 1)
+      $value: nth($spacer, 2)
+
+      @each $attr in (m: "margin", p: "padding")
+        $prefix: nth($attr, 1)
+        $sufix: #{$bp}-#{$index}
+        $attribute: nth($attr, 2)
+
+        //--------------------------
+        //::::  All directions  ::::
+        //--------------------------
+        .#{$prefix}-#{$sufix}
+          #{$attribute}: $value !important
+
+        //----------------------------
+        //::::  Top and vertical  ::::
+        //----------------------------
+        .#{$prefix}t-#{$sufix}, .#{$prefix}v-#{$sufix}
+          #{$attribute}-top : $value !important
+
+        //-------------------------------
+        //::::  Bottom and vertical  ::::
+        //-------------------------------
+        .#{$prefix}b-#{$sufix}, .#{$prefix}v-#{$sufix}
+          #{$attribute}-bottom: $value !important
+
+        //-------------------------------
+        //::::  Left and horizontal  ::::
+        //-------------------------------
+        .#{$prefix}l-#{$sufix}, .#{$prefix}h-#{$sufix}
+          #{$attribute}-left: $value !important
+
+        //--------------------------------
+        //::::  Right and horizontal  ::::
+        //--------------------------------
+        .#{$prefix}r-#{$sufix}, .#{$prefix}h-#{$sufix}
+          #{$attribute}-right: $value !important
+
+//----------------------------------------------------------------
+//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
+//----------------------------------------------------------------
