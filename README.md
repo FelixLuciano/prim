@@ -19,10 +19,10 @@ Prim is a CSS library focused on templating responsive layouts with a clean code
 
 
 ## Getting started
-The easiest way to try out Prim is using the [Hello World example](https://jsfiddle.net/TecIce/r6Laxep2). Feel free to open it in another tab or you can create an index.html file and include Prim with:
+The easiest way to try out Prim is using the [Hello World example](https://jsfiddle.net/FelixLuciano/r6Laxep2). Feel free to open it in another tab or you can create an index.html file and include Prim with:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/FelixLuciano/prim/dist/css/prim.min.css">
+<script src="https://cdn.jsdelivr.net/gh/FelixLuciano/prim@1.1.0/dist/css/prim.min.css">
 ```
 
 But if you want to install Prim in your project, Bower is the best choice:
