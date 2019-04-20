@@ -1,8 +1,26 @@
 //----------------------------------------------------------------
-//::::::::::::::::::::::::   Background   ::::::::::::::::::::::::
+//::::::::::::::::::::::::   BACKGROUND   ::::::::::::::::::::::::
 //----------------------------------------------------------------
 
-.c
+body
+
+  //----------------------
+  //::::  Templating  ::::
+  //----------------------
+  --max-row-width: #{$max-row-width}
+
+
+  //-------------------
+  //::::  Spacing  ::::
+  //-------------------
+  --spacing-base: #{$spacer-base}
+
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    --spacing-#{$key}: #{$value}
+
 
   //------------------------
   //::::  Basic colors  ::::
@@ -11,15 +29,12 @@
     $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    &-#{$key}
-      color: var(--color-#{$key}) !important
+    --color-#{$key}: #{$value}
 
-      @for $index from 1 through 4
-        &-l#{$index}
-          color: var(--color-#{$key}-l#{$index}) !important
+    @for $index from 1 through 4
+      --color-#{$key}-l#{$index}: #{lighten($value, 6 * $index)}
 
-        &-d#{$index}
-          color: var(--color-#{$key}-d#{$index}) !important
+      --color-#{$key}-d#{$index}: #{desaturate(darken($value, 6 * $index), 7 * $index)}
 
 
   //---------------------------
@@ -29,8 +44,7 @@
     $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    &-#{$key}
-      color: var(--color-#{$key}) !important
+    --color-#{$key}: #{$value}
 
 
   //----------------------------
@@ -40,16 +54,13 @@
     $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    &-#{$key}
-      color: var(--color-#{$key}) !important
+    --color-#{$key}: #{$value}
 
-      @for $index from 1 through 6
-        &-l#{$index}
-          color: var(--color-#{$key}-l#{$index}) !important
+    @for $index from 1 through 6
+      --color-#{$key}-l#{$index}: #{lighten($value, 6 * $index)}
 
-      @for $index from 1 through 12
-        &-d#{$index}
-          color: var(--color-#{$key}-d#{$index}) !important
+    @for $index from 1 through 12
+      --color-#{$key}-d#{$index}: #{desaturate(darken($value, 5 * $index), 0 * $index)}
 
 
   //--------------------------
@@ -57,9 +68,9 @@
   //--------------------------
   @each $item in $palette-colors
     $key: "" + nth($item, 1)
+    $value: nth($item, 2)
 
-    &-#{$key}
-      color: var(--color-#{$key}) !important
+    --color-#{$key}: var(#{$value})
 
 //----------------------------------------------------------------
 //::::::::::::::::::::::::      </>       ::::::::::::::::::::::::

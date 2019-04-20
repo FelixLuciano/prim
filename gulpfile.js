@@ -8,14 +8,14 @@ const Path = require('path')
 const Gulp = require('gulp')
 const Insert = require('gulp-insert')
 const Rename = require('gulp-rename')
-const BrowserSync = require('browser-sync').create()
+const server = require('browser-sync').create()
 
 const Pug = require('gulp-pug')
 
 const Sass = require('gulp-sass')
 const Postcss = require('gulp-postcss')
 const Autoprefixer = require('autoprefixer')
-const Cssnano = require('cssnano')
+const Csso = require('postcss-csso')
 
 
 //-------------------------
@@ -27,10 +27,10 @@ Sass.compiler = require('sass')
 //------------------------------
 //::::  Build library task  ::::
 //------------------------------
-async function buildLibrary(dest, options = {})
+function buildLibrary(dest, options = {})
 {
   let filename = 'prim.css'
-  const copyright = await require('./src/copyright.js')
+  const copyright = require('./src/defaults/copyright.js')
   let postCssPlugins = [
     Autoprefixer({browsers: ['last 1 version']})
   ]
@@ -38,15 +38,34 @@ async function buildLibrary(dest, options = {})
   if(options.minify)
   {
     filename = 'prim.min.css'
-    postCssPlugins.push(Cssnano())
+    postCssPlugins.push(Csso())
   }
 
   return Gulp.src('./src/index.sass')
-    .pipe(Sass())
-    .pipe(Postcss(postCssPlugins))
-    .pipe(Insert.prepend(copyright))
-    .pipe(Rename(filename))
-    .pipe(Gulp.dest(Path.resolve(dest)))
+    .pipe(
+      Sass()
+    )
+
+    .on('error', function(err) {
+      console.log('\n', err.messageFormatted, '\n')
+      this.emit('end')
+    })
+
+    .pipe(
+      Postcss(postCssPlugins)
+    )
+
+    .pipe(
+      Insert.prepend(copyright)
+    )
+
+    .pipe(
+      Rename(filename)
+    )
+
+    .pipe(
+      Gulp.dest(Path.resolve(dest))
+    )
 }
 
 
@@ -56,10 +75,20 @@ async function buildLibrary(dest, options = {})
 function buildPages(dest)
 {
   return Gulp.src('./test/**/*.pug')
-    .pipe(Pug({
-      pretty: true
-    }))
-    .pipe(Gulp.dest(Path.resolve(dest)))
+    .pipe(
+      Pug({
+        pretty: true
+      })
+    )
+
+    .on('error', function(err) {
+      console.log('\n', err.messageFormatted, '\n')
+      this.emit('end')
+    })
+
+    .pipe(
+      Gulp.dest(Path.resolve(dest))
+    )
 }
 
 
@@ -68,7 +97,7 @@ function buildPages(dest)
 //----------------------------------
 function initServerTask(resolve)
 {
-  BrowserSync.init({
+  server.init({
     server: Path.resolve(__dirname, '.tmp'),
     logPrefix: 'Server',
 
@@ -77,12 +106,12 @@ function initServerTask(resolve)
       {
         Gulp.watch(['./src/**/*.sass', './src/**/*.scss'])
           .on('change', function() {
-            buildLibrary('./.tmp/dist/css').pipe(BrowserSync.stream())
+            buildLibrary('./.tmp/dist/css').pipe(server.stream())
           })
 
         Gulp.watch('./test/**/*.pug')
           .on('change', function() {
-            buildPages('./.tmp').pipe(BrowserSync.stream())
+            buildPages('./.tmp').pipe(server.stream())
           })
       }
     }

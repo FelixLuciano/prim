@@ -2,32 +2,10 @@
 //::::::::::::::::::::::::     RATIO      ::::::::::::::::::::::::
 //----------------------------------------------------------------
 
-//-----------------
+//------------------------
 //::::  Ratio  ::::
-//-----------------
-@each $ratio in $ratios
-  $name: nth($ratio, 1)
-  $value: nth($ratio, 2)
-
-  .ratio-#{$name}
-    padding: 0 !important
-    position: relative
-
-    &:after
-      content: ""
-      width: 100%
-      padding-bottom: 100% * $value
-      display: block
-
-    > .ratio-content
-        width: 100%
-        height: 100%
-        position: absolute
-
 //------------------------
-//::::  Custom ratio  ::::
-//------------------------
-.ratio
+.ratio, [class*='ratio-']
   padding: 0 !important
   position: relative
 
@@ -37,58 +15,50 @@
     padding-bottom: calc(100% * var(--ratio))
     display: block
 
-  > .ratio-content
+  > *
       width: 100%
       height: 100%
       position: absolute
 
-//----------------------------
-//::::  Responsive ratio  ::::
-//----------------------------
-@each $breakpoint in $breakpoints
-  $bp: nth($breakpoint, 1)
+      &[class*="spacing-"]
+        height: calc(100% + var(--col-spacing)) !important
 
-  @media only screen and (min-width: nth($breakpoint, 2))
-    @each $ratio in $ratios
-      $name: nth($ratio, 1)
-      $value: nth($ratio, 2)
-
-      .ratio-#{$bp}-#{$name}
-        padding: 0 !important
-        position: relative
-
-        &:after
-          content: ""
-          width: 100%
-          padding-bottom: 100% * $value
-          display: block
-
-        > .ratio-content
-            width: 100%
-            height: 100%
-            position: absolute
 
 //-----------------------------------
-//::::  Responsive custom ratio  ::::
+//::::  Responsive ratio  ::::
 //-----------------------------------
 @each $breakpoint in $breakpoints
   $bp: nth($breakpoint, 1)
 
   @media only screen and (min-width: nth($breakpoint, 2))
     .ratio-#{$bp}
-      padding: 0 !important
-      position: relative
+      --ratio-#{$bp}: var(--ratio-#{bp})
 
-      &:after
-        content: ""
-        width: 100%
-        padding-bottom: calc(100% * var(--ratio-#{$bp}))
-        display: block
 
-      > .ratio-content
-          width: 100%
-          height: 100%
-          position: absolute
+//--------------------------
+//::::  Standard Ratio  ::::
+//--------------------------
+@each $item in $ratios
+  $key: "" + nth($item, 1)
+  $value: nth($item, 2)
+
+  .ratio-#{$key}
+    --ratio: #{$value}
+
+//-------------------------------------
+//::::  Responsive standard ratio  ::::
+//-------------------------------------
+@each $breakpoint in $breakpoints
+  $bp: nth($breakpoint, 1)
+
+  @media only screen and (min-width: nth($breakpoint, 2))
+    @each $ratio in $ratios
+      $key: "" + nth($ratio, 1)
+      $value: nth($ratio, 2)
+
+      .ratio-#{$bp}-#{$key}
+        --ratio: #{$value}
+
 
 //----------------------------------------------------------------
 //::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
