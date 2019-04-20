@@ -4,55 +4,73 @@
 
 body
 
-  //------------------
-  //::::  Colors  ::::
-  //------------------
-  @each $item in $colors
-    $name: nth($item, 1)
+  //----------------------
+  //::::  Templating  ::::
+  //----------------------
+  --max-row-width: #{$max-row-width}
+
+
+  //-------------------
+  //::::  Spacing  ::::
+  //-------------------
+  --spacing-base: #{$spacer-base}
+
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    --color-#{"" + $name}: #{$value}
+    --spacing-#{$key}: #{$value}
+
+
+  //------------------------
+  //::::  Basic colors  ::::
+  //------------------------
+  @each $item in $basic-colors
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    --color-#{$key}: #{$value}
 
     @for $index from 1 through 4
-      --color-#{"" + $name}-l#{"" + $index}: #{lighten($value, 6 * $index)}
+      --color-#{$key}-l#{$index}: #{lighten($value, 6 * $index)}
 
-      --color-#{"" + $name}-d#{"" + $index}: #{desaturate(darken($value, 6 * $index), 7 * $index)}
+      --color-#{$key}-d#{$index}: #{desaturate(darken($value, 6 * $index), 7 * $index)}
 
 
-  //--------------------------
-  //::::  Neutral colors  ::::
-  //--------------------------
-  @each $item in $color-neutrals
-    $name: nth($item, 1)
+  //---------------------------
+  //::::  Standard colors  ::::
+  //---------------------------
+  @each $item in $standard-colors
+    $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    --color-#{"" + $name}: #{$value}
+    --color-#{$key}: #{$value}
+
+
+  //----------------------------
+  //::::  Full tone colors  ::::
+  //----------------------------
+  @each $item in $tone-colors
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    --color-#{$key}: #{$value}
 
     @for $index from 1 through 6
-      --color-#{"" + $name}-l#{"" + $index}: #{lighten($value, 6 * $index)}
+      --color-#{$key}-l#{$index}: #{lighten($value, 6 * $index)}
 
     @for $index from 1 through 12
-      --color-#{"" + $name}-d#{"" + $index}: #{desaturate(darken($value, 5 * $index), 0 * $index)}
+      --color-#{$key}-d#{$index}: #{desaturate(darken($value, 5 * $index), 0 * $index)}
 
 
-  //------------------------
-  //::::  Shade colors  ::::
-  //------------------------
-  @each $item in $color-shades
-    $name: nth($item, 1)
+  //--------------------------
+  //::::  Palette colors  ::::
+  //--------------------------
+  @each $item in $palette-colors
+    $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
-    --color-#{"" + $name}: #{$value}
-
-
-  //--------------------------------
-  //::::  Customization colors  ::::
-  //--------------------------------
-  @each $item in $color-customs
-    $name: nth($item, 1)
-    $value: nth($item, 2)
-
-    --color-#{"" + $name}: var(#{$value})
+    --color-#{$key}: var(#{$value})
 
 //----------------------------------------------------------------
 //::::::::::::::::::::::::      </>       ::::::::::::::::::::::::

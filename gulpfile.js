@@ -27,10 +27,10 @@ Sass.compiler = require('sass')
 //------------------------------
 //::::  Build library task  ::::
 //------------------------------
-async function buildLibrary(dest, options = {})
+function buildLibrary(dest, options = {})
 {
   let filename = 'prim.css'
-  const copyright = await require('./src/copyright.js')
+  const copyright = require('./src/copyright.js')
   let postCssPlugins = [
     Autoprefixer({browsers: ['last 1 version']})
   ]

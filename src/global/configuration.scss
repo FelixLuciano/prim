@@ -19,115 +19,105 @@ $breakpoints: (
   xl: $breakpoint-xl
 );
 
+//----------------------
+//::::  Templating  ::::
+//----------------------
+$max-row-width: 1000px;
+
 
 //-------------------
 //::::  Spacing  ::::
 //-------------------
-$spacer-base: 16px;
-
-$spacing-0: 0;
-$spacing-1: $spacer-base / 4;
-$spacing-2: $spacer-base / 2;
-$spacing-3: $spacer-base;
-$spacing-4: $spacer-base * 1.5;
-$spacing-5: $spacer-base * 3;
+$spacer-base: 12pt;
 
 $spacers: (
-  0: $spacing-0,
-  1: $spacing-1,
-  2: $spacing-2,
-  3: $spacing-3,
-  4: $spacing-4,
-  5: $spacing-5
+  0: 0,
+  1: calc(var(--spacing-base) / 4),
+  2: calc(var(--spacing-base) / 2),
+  3: var(--spacing-base),
+  4: calc(var(--spacing-base) * 1.5),
+  5: calc(var(--spacing-base) * 35)
 );
 
 
 //----------------
 //::::  Font  ::::
 //----------------
-$default-font-size: 16px;
+$font-size_min-vw: 0;
+$font-size_max-vw: $max-row-width;
+$font-size_min-size: 16px;
+$font-size_max-size: 22px;
 
-
-//-----------------------
-//::::  Main colors  ::::
-//-----------------------
-$color-red: #F33;
-$color-orange: #F83;
-$color-yellow: #EC3;
-$color-lime: #8D3;
-$color-green: #3C5;
-$color-cyan: #2CA;
-$color-blue: #29F;
-$color-sapphire: #25F;
-$color-purple: #72F;
-$color-fuchsia: #E39;
-
-$colors: (
-  red: $color-red,
-  orange: $color-orange,
-  yellow: $color-yellow,
-  lime: $color-lime,
-  green: $color-green,
-  cyan: $color-cyan,
-  blue: $color-blue,
-  sapphire: $color-sapphire,
-  purple: $color-purple,
-  fuchsia: $color-fuchsia
+$font-weights: (
+  thin:     100,
+  light:    300,
+  regular:  400,
+  medium:   500,
+  semibold: 600,
+  bold:     700,
+  black:    900
 );
 
 
 //------------------------
-//::::  Color shades  ::::
+//::::  Basic colors  ::::
 //------------------------
-$color-shade-black: #000;
-$color-shade-dark: #111;
-$color-shade-white: #FFF;
-$color-shade-light: #DDD;
-
-$color-shades: (
-  black: $color-shade-black,
-  dark: $color-shade-dark,
-  white: $color-shade-white,
-  light: $color-shade-light,
-);
-
-
-//--------------------------
-//::::  Color neutrals  ::::
-//--------------------------
-$color-neutral-gray: #AAA;
-$color-neutral-bluegray: #578;
-
-$color-neutrals: (
-  gray: $color-neutral-gray,
-  bluegray: $color-neutral-bluegray
+$basic-colors: (
+  red:      #F33,
+  orange:   #F83,
+  yellow:   #EC3,
+  lime:     #8D3,
+  green:    #3C5,
+  cyan:     #2CA,
+  blue:     #29F,
+  sapphire: #25F,
+  purple:   #72F,
+  fuchsia:  #E39
 );
 
 
 //---------------------------
-//::::  Color variables  ::::
+//::::  Standard colors  ::::
 //---------------------------
-$color-custom-primary: '--color-blue';
-$color-custom-secondary: '--color-red';
-$color-custom-accent: '--color-yellow';
-
-$color-customs: (
-  primary: $color-custom-primary,
-  secondary: $color-custom-secondary,
-  accent: $color-custom-accent
+$standard-colors: (
+  black: #000,
+  dark:  #111,
+  white: #FFF,
+  light: #DDD,
 );
 
 
-//------------------
-//::::  Ratios  ::::
-//------------------
+//----------------------------
+//::::  Full tone colors  ::::
+//----------------------------
+$tone-colors: (
+  gray:     #AAA,
+  bluegray: #578
+);
+
+
+//--------------------------
+//::::  Palette colors  ::::
+//--------------------------
+$palette-colors: (
+  primary:   --color-blue,
+  secondary: --color-red,
+  palette-1: --color-white,
+  palette-2: --color-white,
+  palette-3: --color-white,
+  palette-4: --color-white,
+  palette-5: --color-white,
+  palette-6: --color-white
+);
+
+
+//---------------------------------------------
+//::::  Standard aspect ratio proportions  ::::
+//---------------------------------------------
 
 $ratios: (
-  "1": 1,
-  "4-3": 4/3,
-  "3-4": 3/4,
-  "16-9": 16/9,
-  "9-16": 9/16
+  square: 1,
+  wide:   9/16
 );
 
 //----------------------------------------------------------------

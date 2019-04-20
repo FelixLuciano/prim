@@ -1,0 +1,27 @@
+doctype html
+html(lang="en" dir="ltr")
+  
+  head
+    meta(charset="utf-8")
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+      
+    title Prism - Grid test
+    
+    link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,900')
+    link(rel='stylesheet' type='text/css' href='/dist/css/prim.css')
+    
+    
+  body
+  
+    header.container
+      .row
+        .col-12.pv-4
+          h1.m-0 Grid
+  
+  
+  
+    section.container
+      .row.spacing-xs-1.spacing-sm-3
+        
+        each i in Array(8)
+          .col-xs-6.col-sm-3.ratio-wide.bg-dark

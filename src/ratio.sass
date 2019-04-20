@@ -5,11 +5,11 @@
 //-----------------
 //::::  Ratio  ::::
 //-----------------
-@each $ratio in $ratios
-  $name: nth($ratio, 1)
-  $value: nth($ratio, 2)
+@each $item in $ratios
+  $key: "" + nth($item, 1)
+  $value: nth($item, 2)
 
-  .ratio-#{$name}
+  .ratio-#{$key}
     padding: 0 !important
     position: relative
 
@@ -19,7 +19,7 @@
       padding-bottom: 100% * $value
       display: block
 
-    > .ratio-content
+    > div
         width: 100%
         height: 100%
         position: absolute

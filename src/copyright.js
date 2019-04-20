@@ -10,5 +10,5 @@ const text = `\
  * Homepage: ${ env.npm_package_homepage }
  */
 `
-console.log(env)
+
 module.exports = text

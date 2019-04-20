@@ -7,68 +7,57 @@
 //-----------------------
 .container.spacing
 
-  @each $spacer in $spacers
-    $index: nth($spacer, 1)
-    $value: nth($spacer, 2)
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
 
-    &-#{$index} > .row + .row
-      margin-top: $value * 2
-
+    &-#{$key} > .row + .row
+      margin-top: calc(var(--spacing-#{$key}) * 2)
 
 
 //--------------------------
 //::::  Column spacing  ::::
 //--------------------------
-.row.spacing
+*[class*="spacing-"]
+  width: calc(100% + var(--col-spacing)) !important
+  flex-basis: calc(100% + var(--col-spacing)) !important
+  max-width: calc(1000px + var(--col-spacing)) !important
+  margin-top: calc(-1 * var(--col-spacing))
+  margin-left: calc(-1 * var(--col-spacing)) !important
+  position: relative
+  right: calc(-1 * var(--col-spacing))
 
-  @each $spacer in $spacers
-    $index: nth($spacer, 1)
-    $value: nth($spacer, 2)
+  &.full-row
+    max-width: calc(100% + var(--col-spacing)) !important
 
-    &-#{$index}
-      width: calc(100% + #{$value}) !important
-      max-width: calc(1000px + #{$value}) !important
-      margin-top: -$value
-      margin-left: -$value !important
-      right: -$value
-      position: relative
+  & > *
+    margin-top: var(--col-spacing)
+    margin-right: var(--col-spacing)
 
-      &.full-line
-        max-width: calc(100% + #{$value}) !important
+    & > *
+      --col-spacing: 0px
 
-      & > .col, & > [class^="col-"]
-        background-clip: padding-box !important
-        border: 0 solid transparent
-        border-top-width: $value
-        border-right-width: $value
+.spacing
+  @each $item in $spacers
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    &-#{$key}
+      --col-spacing: #{$value} !important
+
 
   //-------------------------------------
   //::::  Responsive column spacing  ::::
   //-------------------------------------
   @each $breakpoint in $breakpoints
-    $bp: nth($breakpoint, 1)
+    $bp: "" + nth($breakpoint, 1)
 
     @media only screen and (min-width: nth($breakpoint, 2))
-      @each $spacer in $spacers
-        $index: nth($spacer, 1)
-        $value: nth($spacer, 2)
+      @each $item in $spacers
+        $key: "" + nth($item, 1)
+        $value: nth($item, 2)
 
-        &-#{"" + $bp}-#{$index}
-          width: calc(100% + #{$value}) !important
-          max-width: calc(1000px + #{$value}) !important
-          margin-top: -$value
-          margin-left: -$value !important
-          right: -$value
-          position: relative
-
-          &.full-line
-            max-width: calc(100% + #{$value}) !important
-
-          & > .col, & > [class^="col-"]
-            background-clip: padding-box !important
-            border: 0 solid transparent
-            border-top-width: $value
-            border-right-width: $value
+        &-#{$bp}-#{$key}
+          --col-spacing: #{$value} !important
 
 //----------------------------------------------------------------
 //::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
