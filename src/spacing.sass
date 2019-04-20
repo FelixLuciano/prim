@@ -14,35 +14,30 @@
     $sufix: #{$key}
     $attribute: nth($attr, 2)
 
-    //--------------------------
-    //::::  All directions  ::::
-    //--------------------------
-    .#{$prefix}-#{$sufix}
-      #{$attribute}: $value !important
-
-    //----------------------------
-    //::::  Top and vertical  ::::
-    //----------------------------
-    .#{$prefix}t-#{$sufix}, .#{$prefix}v-#{$sufix}
+    //---------------------------------
+    //::::  All, top and vertical  ::::
+    //---------------------------------
+    .#{$prefix}-#{$sufix}, .#{$prefix}t-#{$sufix}, .#{$prefix}y-#{$sufix}
       #{$attribute}-top : $value !important
 
-    //-------------------------------
-    //::::  Bottom and vertical  ::::
-    //-------------------------------
-    .#{$prefix}b-#{$sufix}, .#{$prefix}v-#{$sufix}
+    //------------------------------------
+    //::::  All, bottom and vertical  ::::
+    //------------------------------------
+    .#{$prefix}-#{$sufix}, .#{$prefix}b-#{$sufix}, .#{$prefix}y-#{$sufix}
       #{$attribute}-bottom: $value !important
 
-    //-------------------------------
-    //::::  Left and horizontal  ::::
-    //-------------------------------
-    .#{$prefix}l-#{$sufix}, .#{$prefix}h-#{$sufix}
+    //------------------------------------
+    //::::  All, left and horizontal  ::::
+    //------------------------------------
+    .#{$prefix}-#{$sufix}, .#{$prefix}l-#{$sufix}, .#{$prefix}x-#{$sufix}
       #{$attribute}-left: $value !important
 
-    //--------------------------------
-    //::::  Right and horizontal  ::::
-    //--------------------------------
-    .#{$prefix}r-#{$sufix}, .#{$prefix}h-#{$sufix}
+    //-------------------------------------
+    //::::  All, right and horizontal  ::::
+    //-------------------------------------
+    .#{$prefix}-#{$sufix}, .#{$prefix}r-#{$sufix}, .#{$prefix}x-#{$sufix}
       #{$attribute}-right: $value !important
+
 
 //-----------------------------------------
 //::::  Responsive margin and padding  ::::
@@ -60,34 +55,28 @@
         $sufix: #{$bp}-#{$key}
         $attribute: nth($attr, 2)
 
-        //--------------------------
-        //::::  All directions  ::::
-        //--------------------------
-        .#{$prefix}-#{$sufix}
-          #{$attribute}: $value !important
-
-        //----------------------------
-        //::::  Top and vertical  ::::
-        //----------------------------
-        .#{$prefix}t-#{$sufix}, .#{$prefix}v-#{$sufix}
+        //---------------------------------
+        //::::  All, top and vertical  ::::
+        //---------------------------------
+        .#{$prefix}-#{$sufix}, .#{$prefix}t-#{$sufix}, .#{$prefix}y-#{$sufix}
           #{$attribute}-top : $value !important
 
-        //-------------------------------
-        //::::  Bottom and vertical  ::::
-        //-------------------------------
-        .#{$prefix}b-#{$sufix}, .#{$prefix}v-#{$sufix}
+        //------------------------------------
+        //::::  All, bottom and vertical  ::::
+        //------------------------------------
+        .#{$prefix}-#{$sufix}, .#{$prefix}b-#{$sufix}, .#{$prefix}y-#{$sufix}
           #{$attribute}-bottom: $value !important
 
-        //-------------------------------
-        //::::  Left and horizontal  ::::
-        //-------------------------------
-        .#{$prefix}l-#{$sufix}, .#{$prefix}h-#{$sufix}
+        //------------------------------------
+        //::::  All, left and horizontal  ::::
+        //------------------------------------
+        .#{$prefix}-#{$sufix}, .#{$prefix}l-#{$sufix}, .#{$prefix}x-#{$sufix}
           #{$attribute}-left: $value !important
 
-        //--------------------------------
-        //::::  Right and horizontal  ::::
-        //--------------------------------
-        .#{$prefix}r-#{$sufix}, .#{$prefix}h-#{$sufix}
+        //-------------------------------------
+        //::::  All, right and horizontal  ::::
+        //-------------------------------------
+        .#{$prefix}-#{$sufix}, .#{$prefix}r-#{$sufix}, .#{$prefix}x-#{$sufix}
           #{$attribute}-right: $value !important
 
 //----------------------------------------------------------------

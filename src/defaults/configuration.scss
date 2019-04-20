@@ -5,14 +5,12 @@
 //-----------------------
 //::::  Breakpoints  ::::
 //-----------------------
-$breakpoint-xs: 0px;
 $breakpoint-sm: 600px;
 $breakpoint-md: 960px;
 $breakpoint-lg: 1264px;
 $breakpoint-xl: 1904px;
 
 $breakpoints: (
-  xs: $breakpoint-xs,
   sm: $breakpoint-sm,
   md: $breakpoint-md,
   lg: $breakpoint-lg,
@@ -36,18 +34,22 @@ $spacers: (
   2: calc(var(--spacing-base) / 2),
   3: var(--spacing-base),
   4: calc(var(--spacing-base) * 1.5),
-  5: calc(var(--spacing-base) * 35)
+  5: calc(var(--spacing-base) * 5)
 );
 
 
 //----------------
 //::::  Font  ::::
 //----------------
-$font-size_min-vw: 0;
+$font-size_min-vw: 0px;
 $font-size_max-vw: $max-row-width;
 $font-size_min-size: 16px;
-$font-size_max-size: 22px;
+$font-size_max-size: 24px;
 
+
+//-----------------------
+//::::  Font weight  ::::
+//-----------------------
 $font-weights: (
   thin:     100,
   light:    300,

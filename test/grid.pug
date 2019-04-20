@@ -15,13 +15,20 @@ html(lang="en" dir="ltr")
   
     header.container
       .row
-        .col-12.pv-4
+        .col-12.py-4
           h1.m-0 Grid
   
   
   
     section.container
-      .row.spacing-xs-1.spacing-sm-3
+      .row.spacing-2
         
-        each i in Array(8)
-          .col-xs-6.col-sm-3.ratio-wide.bg-dark
+        each _, i in Array(8)
+          .col-6.col-sm-3.ratio-wide.bg-dark
+            
+            if i == 0
+              div.p-2.spacing-1
+            
+                each j in Array(6)
+                  .col-4.bg-light
+              

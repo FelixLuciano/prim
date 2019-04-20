@@ -15,13 +15,13 @@ html(lang="en" dir="ltr")
   
     header.container.p-3
       .row.full-row
-        .col-12.pv-4
+        .col-12.py-4
           .l-20.w-bold Colors
   
   
   
-    section.container.p-xs-1.p-sm-3
-      .row.full-row.spacing-xs-1.spacing-sm-3
+    section.container.p-1.p-sm-3
+      .row.full-row.spacing-1.spacing-sm-3
       
         //-------------------------
         //-:::: Basic colors   ::::
@@ -29,12 +29,12 @@ html(lang="en" dir="ltr")
         each color in ['red', 'orange', 'yellow', 'lime', 'green', 'cyan', 'blue', 'sapphire', 'purple', 'fuchsia']
           - classe = `bg-${color}`
           
-          .col-xs-6.col-sm-3.col-md-2.flex
+          .col-6.col-sm-3.col-md-2.flex
             
             .col-12.ratio-wide.fill-height(class=classe): div.p-3
               .l-12.w-bold #{color.toUpperCase()}
                 
-            .col-12.flex.spacing-1.pt-1
+            .col-12.spacing-1.pt-1
               each _, i in Array(4)
                 - classe = `bg-${color}-l${i + 1}`
                 
@@ -53,13 +53,13 @@ html(lang="en" dir="ltr")
         each color in ['gray', 'bluegray']
           - classe = `bg-${color}`
           
-          .col-xs-6.col-sm-3.col-md-2.flex.wrap
+          .col-6.col-sm-3.col-md-2.flex.wrap
             .col-12.ratio-wide(class=classe): div.p-3
               
               .l-12.w-bold
                 = color.toUpperCase()
                 
-            .col-12.flex.spacing-1.pt-1
+            .col-12.spacing-1.pt-1
               each _, i in Array(6)
                 - classe = `bg-${color}-l${i + 1}`
                 
@@ -81,7 +81,7 @@ html(lang="en" dir="ltr")
           if color === 'dark' || color === 'black'
             - classes.push('c-white')
           
-          .col-xs-6.col-sm-3.col-md-2.ratio-wide(class=classes.join(' ')): div.p-3
+          .col-6.col-sm-3.col-md-2.ratio-wide(class=classes.join(' ')): div.p-3
               
             .l-12.w-bold
               = color.toUpperCase()
