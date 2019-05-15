@@ -1,26 +1,35 @@
 doctype html
-html(lang="en" dir="ltr")
+html(lang='en')
   
   head
-    meta(charset="utf-8")
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1')
       
-    title Prism - Test example
+    title PRIM
     
     link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,900')
     link(rel='stylesheet' type='text/css' href='./dist/css/prim.css')
     
     
   body
-    
-    .container.fill-screen
-      
-      .row-fill
+    .container
         
-      .row
+      header.row.mt-5.mb-3.py-5
         .col-12
-          span.l-16.w-bold PRIM
-          br
-          span.l-30 Test example
+          .l-16.w-bold PRIM
+          .l-24 TEST ENVIRONMENT
           
-      .row-fill
+          
+      .row.spacing-2.py-4
+        
+        mixin item(link)
+          a.reset.col-6.col-sm-4.col-md-3.bg-dark.c-white.pointer(href=link + '.html')
+            .p-3
+              .l-07.w-bold TEST
+              .l-10.truncate
+                block
+                  
+        +item('layout') Layout columns
+        +item('grid') Grid spacing
+        +item('colors') Table of colors

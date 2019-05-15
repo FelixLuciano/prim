@@ -1,6 +1,6 @@
 {
-  "name": "prim",
-  "version": "1.1.0",
+  "name": "prim-css",
+  "version": "1.2.0",
   "author": "Luciano Felix",
   "description": "Prim is a CSS library for templating responsive layouts",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "css",
     "library"
   ],
-  "main": "dist/css/prim.css",
+  "main": "src/index.sass",
   "scripts": {
     "server": "gulp server",
     "build": "gulp build"

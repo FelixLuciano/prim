@@ -1,34 +1,32 @@
-doctype html
-html(lang="en" dir="ltr")
+extends ../src/defaults/page.pug
+
+block body
   
-  head
-    meta(charset="utf-8")
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-      
-    title Prism - Grid test
+  .container.spacing-3
     
-    link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,900')
-    link(rel='stylesheet' type='text/css' href='/dist/css/prim.css')
+    header.row
+      .col-12
+        .l-10.w-bold PRIM
+        .l-14 GRID SPACING
     
-    
-  body
-  
-    header.container
-      .row
-        .col-12.py-4
-          h1.m-0 Grid
-  
-  
-  
-    section.container
-      .row.spacing-2
         
-        each _, i in Array(8)
-          .col-6.col-sm-3.ratio-wide.bg-dark
-            
-            if i == 0
-              div.p-2.spacing-1
-            
-                each j in Array(6)
-                  .col-4.bg-light
+        
+    section.row.spacing-3
+    
+      each _, i in Array(8)
+        .col-6.col-sm-3.ratio-wide.bg-dark
+          
+          if i == 0
+            div.p-2.spacing-2
+          
+              each j in Array(6)
+                .col-4.bg-light
+                  
+          if i == 1
+            div.p-2.spacing-2
+          
+              each j in Array(6)
+                .col-4.spacing-1
               
+                  each j in Array(4)
+                    .col-6.bg-light

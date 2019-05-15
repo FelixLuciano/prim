@@ -33,8 +33,8 @@ $spacers: (
   1: calc(var(--spacing-base) / 4),
   2: calc(var(--spacing-base) / 2),
   3: var(--spacing-base),
-  4: calc(var(--spacing-base) * 1.5),
-  5: calc(var(--spacing-base) * 5)
+  4: calc(var(--spacing-base) * 2),
+  5: calc(var(--spacing-base) * 4)
 );
 
 
@@ -65,16 +65,16 @@ $font-weights: (
 //::::  Basic colors  ::::
 //------------------------
 $basic-colors: (
-  red:      #F33,
-  orange:   #F83,
-  yellow:   #EC3,
-  lime:     #8D3,
-  green:    #3C5,
-  cyan:     #2CA,
-  blue:     #29F,
-  sapphire: #25F,
-  purple:   #72F,
-  fuchsia:  #E39
+  red:       #F33,
+  orange:    #F83,
+  yellow:    #EC3,
+  lime:      #8D3,
+  green:     #3C5,
+  turquoise: #2CA,
+  blue:      #29F,
+  sapphire:  #25F,
+  purple:    #72F,
+  fuchsia:   #E39
 );
 
 

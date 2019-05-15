@@ -17,35 +17,38 @@
 //--------------------------
 //::::  Column spacing  ::::
 //--------------------------
-*[class*="spacing-"]
+*[class*="spacing-"]:not(.container)
   width: calc(100% + var(--col-spacing)) !important
-  flex-basis: calc(100% + var(--col-spacing)) !important
-  max-width: calc(1000px + var(--col-spacing)) !important
-  margin-top: calc(-1 * var(--col-spacing))
-  margin-left: calc(-1 * var(--col-spacing)) !important
-  position: relative
-  right: calc(-1 * var(--col-spacing))
+  margin-top: calc(0px - var(--col-spacing))
   display: flex
   flex-wrap: wrap
   flex-direction: row
 
-  &.row.full-row
-    max-width: calc(100% + var(--col-spacing)) !important
+  &.row, .row-fill
+    margin-left: calc(var(--col-spacing))
+    max-width: calc(1000px + var(--col-spacing))
+    margin-top: initial
+    margin-bottom: calc(0px - var(--col-spacing))
+    position: relative
+    top: calc(0px - var(--col-spacing))
+
+    &.full-row
+      max-width: calc(100% + var(--col-spacing)) !important
 
   & > *
     margin-top: var(--col-spacing)
     margin-right: var(--col-spacing)
 
-    & > *
-      --col-spacing: 0px
+    &[class*='col-']
+      width: calc(var(--col-size) - var(--col-spacing, 0px))
+      flex-basis: calc(var(--col-size) - var(--col-spacing, 0px))
 
 .spacing
   @each $item in $spacers
     $key: "" + nth($item, 1)
-    $value: nth($item, 2)
 
     &-#{$key}
-      --col-spacing: #{$value} !important
+      --col-spacing: var(--spacing-#{$key}) !important
 
 
   //-------------------------------------

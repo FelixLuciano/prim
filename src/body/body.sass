@@ -1,9 +1,13 @@
 //----------------------------------------------------------------
-//::::::::::::::::::::::::      ROOT      ::::::::::::::::::::::::
+//::::::::::::::::::::::::      BODY      ::::::::::::::::::::::::
 //----------------------------------------------------------------
 
-body
+html
   height: 100vh
+
+body
+  width: 100%
+  min-height: 100vh
   background-color: var(--color-light)
   margin: 0
   padding: 0
@@ -16,10 +20,11 @@ body
   user-select: none
   overflow-x: hidden
   overflow-y: auto
+  position: absolute
 
-  *
-    &, &:before, &:after
-      box-sizing: Inherit
+*
+  &, &:before, &:after
+    box-sizing: Inherit
 
 //----------------------------------------------------------------
 //::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
