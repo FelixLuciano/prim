@@ -25,10 +25,10 @@ The easiest way to try out Prim is using the [Hello World example](https://jsfid
 <script src="https://cdn.jsdelivr.net/gh/FelixLuciano/prim@1.2.0/dist/css/prim.min.css">
 ```
 
-But if you want to install Prim in your project, Bower is the best choice:
+But if you want to install Prim in your project, this is the best choice:
 
 ```bash
-bower install prim
+npm install prim-css
 ```
 
 To know more go to the [Prim homepage](https://felixluciano.github.io/prim).
