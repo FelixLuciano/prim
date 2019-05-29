@@ -1,3 +1,8 @@
+/* defaults / copyright.js
+ * > Copyright notes to compiled files
+ */
+
+
 'use strict'
 
 const { env } = require('process')

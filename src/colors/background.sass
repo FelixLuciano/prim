@@ -1,31 +1,18 @@
-//----------------------------------------------------------------
-//::::::::::::::::::::::::   Background   ::::::::::::::::::::::::
-//----------------------------------------------------------------
+/* colors / background.sass
+ * > Class declaration to change the background color of elements using root scope variables
+ */
+
+//--------------------
+  ::  Class prefix  ::
+//--------------------
+// eg.: .bg-blue
 
 .bg
 
-  //------------------------
-  //::::  Basic colors  ::::
-  //------------------------
-  @each $item in $basic-colors
-    $key: "" + nth($item, 1)
-    $value: nth($item, 2)
+  //-----------------------
+    ::  Standard colors  ::
+  //-----------------------
 
-    &-#{$key}
-      background-color: var(--color-#{$key}) !important
-
-      @for $index from 1 through 4
-        &-l#{$index}
-          background-color: var(--color-#{$key}-l#{$index}) !important
-
-        &-d#{$index}
-          background-color: var(--color-#{$key}-d#{$index}) !important
-          color: var(--color-white)
-
-
-  //---------------------------
-  //::::  Standard colors  ::::
-  //---------------------------
   @each $item in $standard-colors
     $key: "" + nth($item, 1)
     $value: nth($item, 2)
@@ -34,35 +21,58 @@
       background-color: var(--color-#{$key}) !important
 
 
-  //----------------------------
-  //::::  Full tone colors  ::::
-  //----------------------------
-  @each $item in $tone-colors
+  //-------------------------
+    ::  Short-tone colors  ::
+  //-------------------------
+
+  @each $item in $short-tone-colors
     $key: "" + nth($item, 1)
     $value: nth($item, 2)
 
+    // Base tone
     &-#{$key}
       background-color: var(--color-#{$key}) !important
 
+      @for $index from 1 through 4
+        // Lighten tones
+        &-l#{$index}
+          background-color: var(--color-#{$key}-l#{$index}) !important
+
+        // Darken tones
+        &-d#{$index}
+          background-color: var(--color-#{$key}-d#{$index}) !important
+
+
+  //------------------------
+    ::  Full-tone colors  ::
+  //------------------------
+
+  @each $item in $full-tone-colors
+    $key: "" + nth($item, 1)
+    $value: nth($item, 2)
+
+    // Base tone
+    &-#{$key}
+      background-color: var(--color-#{$key}) !important
+
+      // Lighten tones
       @for $index from 1 through 6
         &-l#{$index}
           background-color: var(--color-#{$key}-l#{$index}) !important
 
+      // Darken tones
       @for $index from 1 through 12
         &-d#{$index}
           background-color: var(--color-#{$key}-d#{$index}) !important
-          color: var(--color-white)
 
 
-  //--------------------------
-  //::::  Palette colors  ::::
-  //--------------------------
-  @each $item in $palette-colors
+  //----------------------
+    ::  Theming colors  ::
+  //----------------------
+
+  @each $item in $theming-colors
     $key: "" + nth($item, 1)
+    $value: nth($item, 2)
 
     &-#{$key}
-      background-color: var(--color-#{$key}) !important
-
-//----------------------------------------------------------------
-//::::::::::::::::::::::::      </>       ::::::::::::::::::::::::
-//----------------------------------------------------------------
+      background-color: #{$value} !important

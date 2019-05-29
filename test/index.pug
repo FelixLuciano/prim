@@ -9,7 +9,7 @@ html(lang='en')
     title PRIM
     
     link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,900')
-    link(rel='stylesheet' type='text/css' href='./dist/css/prim.css')
+    link(rel='stylesheet' type='text/css' href='./dist/prim.css')
     
     
   body
@@ -24,12 +24,12 @@ html(lang='en')
       .row.spacing-2.py-4
         
         mixin item(link)
-          a.reset.col-6.col-sm-4.col-md-3.bg-dark.c-white.pointer(href=link + '.html')
-            .p-3
-              .l-07.w-bold TEST
-              .l-10.truncate
-                block
+          a.col-6.col-sm-4.col-md-3.p-3.bg-dark.c-white(href=link + '.html')
+            .l-07.w-bold TEST
+            .l-10.truncate
+              block
                   
         +item('layout') Layout columns
         +item('grid') Grid spacing
         +item('colors') Table of colors
+        +item('components') Standard components

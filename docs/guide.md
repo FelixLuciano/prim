@@ -1,15 +1,9 @@
-![Prim](.github/assets/banner.svg)
+## INTRODUCTION
 
-[![jsDelivr](https://data.jsdelivr.com/v1/package/npm/prim-css/badge)](https://www.jsdelivr.com/package/npm/prim-css)
-
----
-
-### Introduction
-
-**Prim** is a CSS library focused on templating responsive layouts with a clean code that goes straight to the point with a css-only file that contain a set of classes that do the work for you.
+>**Prim is a CSS library focused on templating responsive layouts with a clean code that goes straight to the point with a css-only file that contain a set of classes that do the work for you.**
 
 
-### Features
+## FEATURES
 
 - **Grid** - A column system that is the core of the library
 - **Flexbox** - Premade flexbox methods to speed up your layouts construction.
@@ -21,7 +15,7 @@
 - And more...
 
 
-### Getting started
+## QUICK START
 
 The easiest way to try out Prim is using the [Hello World example](https://jsfiddle.net/FelixLuciano/r6Laxep2). Feel free to open it in another tab or you can create an index.html file and include Prim with:
 
@@ -34,12 +28,3 @@ But if you want to install Prim in your project, use this in your terminal:
 ```bash
 npm install prim-css
 ```
-
-To know more go to the [Prim homepage](https://felixluciano.github.io/prim).
-
-
-### LICENSE
-[MIT](https://github.com/FelixLuciano/prim/blob/master/LICENSE)
-
-
-**Copyright (c) 2019 Luciano Felix**
