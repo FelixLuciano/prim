@@ -26,7 +26,7 @@
 The easiest way to try out Prim is using the [Hello World example](https://jsfiddle.net/FelixLuciano/r6Laxep2). Feel free to open it in another tab or you can create an index.html file and include Prim with:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FelixLuciano/prim@1.3.0/dist/css/prim.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FelixLuciano/prim@1.3.0/dist/prim.min.css" type="text/css">
 ```
 
 But if you want to install Prim in your project, use this in your terminal:
