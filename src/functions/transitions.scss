@@ -3,7 +3,7 @@
  */
 
 
-@function transition($attribute: all, $time: 200ms, $easing: $animation-easing)
+@function transition($attribute: all, $time: 200ms, $easing: var(--animation-easing))
 {
   @return $attribute $time $easing;
 }

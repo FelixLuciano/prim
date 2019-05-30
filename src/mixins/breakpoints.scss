@@ -9,28 +9,20 @@
 @mixin media($min-width: 0, $max-width: null, $medium: screen)
 {
   //  $min-width < $medium
-  @if ($max-width == null)
-  {
-    @media #{$medium} and (min-width: $min-width)
-    {
+  @if ($max-width == null) {
+    @media #{$medium} and (min-width: $min-width) {
       @content;
     }
   }
-
   //  $medium < $max-width
-  @else if ($min-width == 0 and $max-width > 0)
-  {
-    @media #{$medium} and (max-width: $max-width)
-    {
+  @else if ($min-width == 0 and $max-width > 0)   {
+    @media #{$medium} and (max-width: $max-width) {
       @content;
     }
   }
-
   //  $min-width < $medium < $max-width
-  @else
-  {
-    @media #{$medium} and (min-width: $min-width) and (max-width: $max-width)
-    {
+  @else {
+    @media #{$medium} and (min-width: $min-width) and (max-width: $max-width) {
       @content;
     }
   }
@@ -43,34 +35,28 @@
 
 @mixin breakpoint($start-viewport: 0, $end-viewport: null)
 {
-  $min-width : map-get($breakpoints, $start-viewport);
+  $min-width: 0;
   $max-width: 0;
 
-  @if ($end-viewport != null)
-  {
+  @if ($start-viewport != 0) {
+    $min-width: map-get($breakpoints, $start-viewport);
+  }
+  @if ($end-viewport != null) {
     $max-width: map-get($breakpoints, $end-viewport);
   }
 
-  @if ($max-width == 0)
-  {
-    @media screen and (min-width: $min-width)
-    {
+  @if ($max-width == 0) {
+    @include media($min-width) {
       @content;
     }
   }
-
-  @else if ($min-width == 0 and $max-width > 0)
-  {
-    @media screen and (max-width: $max-width - 1)
-    {
+  @else if ($min-width == 0 and $max-width > 0) {
+    @include media(0, $max-width - 1) {
       @content;
     }
   }
-
-  @else
-  {
-    @media screen and (min-width: $min-width) and (max-width: $max-width - 1)
-    {
+  @else {
+    @include media($min-width, $max-width - 1) {
       @content;
     }
   }

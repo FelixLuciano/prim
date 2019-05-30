@@ -1,5 +1,5 @@
 /* prim-css - Prim is a CSS library for templating responsive layouts
- * Version: 1.3.1
+ * Version: 1.3.2
  * Author: Luciano Felix
  * License: MIT
  * Homepage: https://felixluciano.github.io/prim
@@ -312,10 +312,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0;
-  font-size: 1em;
-  font: inherit;
-  vertical-align: baseline; }
+  border: 0; }
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -364,6 +361,7 @@ a[type='button']:hover, a[type='reset']:hover, a[type='submit']:hover {
   border: 0;
   border-radius: 0;
   outline: 0;
+  background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
   color: var(--color-dark);
@@ -385,9 +383,9 @@ a[type='button']:hover, a[type='reset']:hover, a[type='submit']:hover {
     opacity: 0;
     display: block;
     position: relative;
-    -webkit-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    -o-transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: opacity 200ms var(--animation-easing);
+    -o-transition: opacity 200ms var(--animation-easing);
+    transition: opacity 200ms var(--animation-easing);
     pointer-events: none; }
   [type='button']:hover:before, [type='reset']:hover:before, [type='submit']:hover:before, button:hover:before {
     opacity: .1; }
@@ -409,6 +407,7 @@ a[type='button']:hover, a[type='reset']:hover, a[type='submit']:hover {
     [type='button'].icon-left .button-icon, [type='reset'].icon-left .button-icon, [type='submit'].icon-left .button-icon, button.icon-left .button-icon {
       margin-left: -32px;
       line-height: 36px;
+      height: 36px;
       float: left; }
   [type='button'].icon-right, [type='reset'].icon-right, [type='submit'].icon-right, button.icon-right {
     padding-right: 40px; }
@@ -417,6 +416,7 @@ a[type='button']:hover, a[type='reset']:hover, a[type='submit']:hover {
     [type='button'].icon-right .button-icon, [type='reset'].icon-right .button-icon, [type='submit'].icon-right .button-icon, button.icon-right .button-icon {
       margin-right: -32px;
       line-height: 36px;
+      height: 36px;
       float: right; }
   [type='button'].icon, [type='reset'].icon, [type='submit'].icon, button.icon {
     width: 36px;
@@ -456,9 +456,9 @@ a[type='button']:hover, a[type='reset']:hover, a[type='submit']:hover {
   vertical-align: middle;
   -moz-appearance: none;
   -webkit-appearance: none;
-  -webkit-transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: border-color 200ms cubic-bezier(0.4, 0, 0.2, 1); }
+  -webkit-transition: border-color 200ms var(--animation-easing);
+  -o-transition: border-color 200ms var(--animation-easing);
+  transition: border-color 200ms var(--animation-easing); }
   [type='color']:focus, [type='date']:focus, [type='datetime']:focus, [type='datetime-local']:focus, [type='email']:focus, [type='file']:focus, [type='month']:focus, [type='number']:focus, [type='password']:focus, [type='search']:focus, [type='tel']:focus, [type='text']:focus, [type='time']:focus, [type='url']:focus, [type='week']:focus, textarea:focus, select:focus {
     border: 1px solid var(--color-primary);
     -webkit-box-shadow: none;
@@ -1265,7 +1265,7 @@ legend {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
-    @media screen and (min-width: null) and (max-width: 539px) {
+    @media screen and (max-width: 539px) {
       .container > .row {
         width: 100%; } }
     @media screen and (min-width: 540px) {
@@ -2962,7 +2962,7 @@ body {
 /* utilities / displaying.sass
  * > Responsive displaying
  */
-@media screen and (min-width: null) and (max-width: 539px) {
+@media screen and (max-width: 539px) {
   .h-xs {
     display: none !important; } }
 
@@ -2970,7 +2970,7 @@ body {
   .h-sm-o {
     display: none !important; } }
 
-@media screen and (min-width: null) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .h-sm-b {
     display: none !important; } }
 
@@ -2982,7 +2982,7 @@ body {
   .h-md-o {
     display: none !important; } }
 
-@media screen and (min-width: null) and (max-width: 999px) {
+@media screen and (max-width: 999px) {
   .h-md-b {
     display: none !important; } }
 
@@ -2994,7 +2994,7 @@ body {
   .h-lg-o {
     display: none !important; } }
 
-@media screen and (min-width: null) and (max-width: 1599px) {
+@media screen and (max-width: 1599px) {
   .h-lg-b {
     display: none !important; } }
 
@@ -4931,9 +4931,9 @@ body {
   cursor: pointer; }
 
 .transition-all {
-  -webkit-transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1); }
+  -webkit-transition: all 200ms var(--animation-easing);
+  -o-transition: all 200ms var(--animation-easing);
+  transition: all 200ms var(--animation-easing); }
 
 .transition {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
