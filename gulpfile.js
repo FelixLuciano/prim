@@ -8,7 +8,6 @@ const BrowserSync = require('browser-sync')
 // Gulp plugins
 const Insert = require('gulp-insert')
 const Rename = require('gulp-rename')
-const SassGlob = require('gulp-sass-glob')
 const Pug = require('gulp-pug')
 const Postcss = require('gulp-postcss')
 
@@ -27,11 +26,6 @@ function buildLibrary(dest, options = {})
   let filename = 'prim'
   const extension = 'css'
   const postCssPlugins = []
-
-  // Sass-glob process
-  file = file.pipe(
-    SassGlob()
-  )
 
   // SASS process
   file = file.pipe(

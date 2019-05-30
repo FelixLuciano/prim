@@ -1,5 +1,5 @@
 /* prim-css - Prim is a CSS library for templating responsive layouts
- * Version: 1.3.0
+ * Version: 1.3.1
  * Author: Luciano Felix
  * License: MIT
  * Homepage: https://felixluciano.github.io/prim
@@ -2038,10 +2038,10 @@ legend {
  */
 body {
   font-size: 16px; }
-  @media screen and (min-width: null) {
+  @media screen and (min-width: 0px) {
     body {
       font-size: calc(16px + 8 * ((100vw - 0px) / 1000)); } }
-  @media screen and (min-width: null) {
+  @media screen and (min-width: 1000px) {
     body {
       font-size: 24px; } }
 
@@ -4144,6 +4144,33 @@ body {
 .bg-fixed {
   background-attachment: fixed; }
 
+/* utilities / radius.sass
+ * > Border-radius helper
+ */
+.radius-0 {
+  border-radius: 0 !important; }
+
+.radius-2 {
+  border-radius: 2px !important; }
+
+.radius-4 {
+  border-radius: 4px !important; }
+
+.radius-6 {
+  border-radius: 6px !important; }
+
+.radius-10 {
+  border-radius: 10px !important; }
+
+.radius-20 {
+  border-radius: 20px !important; }
+
+.radius-max {
+  border-radius: 9999px !important; }
+
+.radius-full {
+  border-radius: 50% !important; }
+
 /* utilities / others.sass
  * > Any utility
  */
@@ -4190,30 +4217,3 @@ body {
 
 .reset {
   all: unset; }
-
-/* utilities / radius.sass
- * > Border-radius helper
- */
-.radius-0 {
-  border-radius: 0 !important; }
-
-.radius-2 {
-  border-radius: 2px !important; }
-
-.radius-4 {
-  border-radius: 4px !important; }
-
-.radius-6 {
-  border-radius: 6px !important; }
-
-.radius-10 {
-  border-radius: 10px !important; }
-
-.radius-20 {
-  border-radius: 20px !important; }
-
-.radius-max {
-  border-radius: 9999px !important; }
-
-.radius-full {
-  border-radius: 50% !important; }
